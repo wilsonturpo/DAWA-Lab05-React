@@ -6,7 +6,7 @@ const Filter = (props) =>{
     
     return(
         <div>
-            Filter shown with: 
+            <h5 style={{display:'inline'}}>Filter shown with: </h5>            
             <input value={filter} type="text" onChange={props.handleFilter}/>
         </div>
     )

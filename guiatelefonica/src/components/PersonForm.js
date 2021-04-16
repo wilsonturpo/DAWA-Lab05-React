@@ -7,16 +7,17 @@ const PersonForm = (props) => {
 
     return (
     <form>
-        <div>
-        name:
+        <div>        
+        <h5 style={{display:"inline"}}>name:</h5>
         <input value={newName} type="text" onChange={props.handleChange} />
-        <br></br>
-        Telefono:
+        <br></br><br></br>
+        <h5 style={{display:"inline"}}>Telefono:</h5>
         <input value={newPhone} type="text" onChange={props.handleChangePhone} />
         </div>
 
         <div>
-        <button type="submit" onClick={props.handleClick}>
+        <br></br>
+        <button type="submit" className="btn btn-success btn-lg" onClick={props.handleClick}>
             add
         </button>
         </div>

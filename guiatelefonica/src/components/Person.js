@@ -5,7 +5,7 @@ const Person = (props)=>{
     const name = props.name
     const telefono = props.phone
     return(
-        <p>{name} - {telefono}</p>
+        <li>{name} - {telefono}</li>
     )
 }
 

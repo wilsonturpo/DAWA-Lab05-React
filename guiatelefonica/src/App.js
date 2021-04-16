@@ -42,17 +42,17 @@ const App = () => {
   const handleClick = (e)=>{
     e.preventDefault();
     
-    var existe = false
+    var repetido = false
 
     for(var i = 0; i < persons.length; i++) {
       var name = persons[i].name;
 
       if(newName == name){
-        existe = true        
+        repetido = true        
       }
     }
 
-    if(existe==true){
+    if(repetido==true){
       window.alert(`${newName} is already added to the phonebook`);      
     }else{      
       const newPerson = {
@@ -72,13 +72,14 @@ const App = () => {
   }
 
   return (
-    <div style={{margin:20}}>
-      <h2>Phonebook</h2>
+    <div style={{margin:20, background:"#c2edc8"}} className="container">
+      <h2>Phonebook</h2> <br></br>
 
       <Filter 
         filterName={filter} 
         handleFilter={handleFilter} 
       />
+      <br></br>
 
       <PersonForm 
         newName={newName}
@@ -87,20 +88,22 @@ const App = () => {
         handleChangePhone={handleChangePhone}
         handleClick={handleClick}
       />
-
+      <br></br>
       <h2>Numbers</h2>
-
-      {
-        persons.map((person) => person.name.includes(filter) == true  && (
-          
-          <Person 
-            key={person.name} 
-            name={person.name} 
-            phone={person.telefono} 
-          />
-          
-        ))
-      }
+      <br></br>
+      <ul>
+        {
+          persons.map((person) => person.name.includes(filter) == true  && (
+            
+            <Person 
+              key={person.name} 
+              name={person.name} 
+              phone={person.telefono} 
+            />
+            
+          ))
+        }
+      </ul>
 
     </div>
   )
