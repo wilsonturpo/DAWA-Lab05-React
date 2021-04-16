@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 
 import './App.css';
+import Filter from './components/Filter';
+import Person from './components/Person';
+import PersonForm from './components/PersonForm';
 
 const App = () => {
 
@@ -72,29 +75,30 @@ const App = () => {
     <div style={{margin:20}}>
       <h2>Phonebook</h2>
 
-      Filter shown with: 
-      <input value={filter} type="text" onChange={handleFilter}/>
+      <Filter 
+        filterName={filter} 
+        handleFilter={handleFilter} 
+      />
 
-      <form>
-
-        <div>
-          name: 
-          <input value={newName} type="text" onChange={handleChange}/>
-          <br></br>
-          Telefono: 
-          <input value={newPhone} type="text" onChange={handleChangePhone}/>
-        </div>
-
-        <div>
-          <button type="submit" onClick={handleClick}>add</button>
-        </div>
-
-      </form>
+      <PersonForm 
+        newName={newName}
+        newPhone={newPhone}
+        handleChange={handleChange}
+        handleChangePhone={handleChangePhone}
+        handleClick={handleClick}
+      />
 
       <h2>Numbers</h2>
+
       {
         persons.map((person) => person.name.includes(filter) == true  && (
-          <p key={person.name}>{person.name} - {person.telefono}</p>
+          
+          <Person 
+            key={person.name} 
+            name={person.name} 
+            phone={person.telefono} 
+          />
+          
         ))
       }
 
